@@ -1,10 +1,6 @@
-import { Box, useStyleConfig, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/image";
 
-export default function Logo() {
-  const styles = useStyleConfig("Logo");
-  return (
-    <Box __css={styles}>
-      <Text>T</Text>
-    </Box>
-  );
+export default function Logo({ w }) {
+  return <Image {...{ w }} src="./images/trenote_logo.svg" alt="trenote" />;
 }

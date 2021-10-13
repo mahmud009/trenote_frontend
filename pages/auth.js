@@ -1,60 +1,68 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
-import loginImage from "../public/images/login_image.svg";
-import {
-  Box,
-  HStack,
-  Flex,
-  Heading,
-  Button,
-  SimpleGrid,
-  GridItem,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, HStack, VStack, Container, Text } from "@chakra-ui/react";
 import Logo from "../components/Logo";
-import RegistrationForm from "../components/RegistrationForm";
+import { Image } from "@chakra-ui/image";
+import AuthCard from "../components/AuthCard";
 
 export default function auth() {
   return (
-    <Box h="100vh" w="full">
-      <HStack h="full" spacing={0}>
-        <VStack alignItems="flex-start" h="full" w="full" bg="teal.50">
-          <HStack justifyContent="flex-start" py={4} px={8}>
-            <Logo />
-            <Heading>trenote</Heading>
-          </HStack>
-          <Box width="full" h="full">
-            <Flex alignItems="center" justifyContent="center" h="full">
-              <Image src={loginImage} alt="Working Together" width={350} />
-            </Flex>
+    <Box {...styles.wrapper}>
+      <Box {...styles.overlay} />
+      <Container maxW="8xl" h="full">
+        <HStack w="full" h="full" alignItems="flex-start">
+          <Box py="75px" h="full" w="50%">
+            <Box display="flex">
+              <Logo w="38px" />
+              <Text
+                ml={4}
+                fontWeight="700"
+                color="brand_blue.500"
+                fontSize="28px"
+              >
+                trenote
+              </Text>
+            </Box>
+
+            <Box mt={5} pr="250px">
+              <Text fontWeight="400" color="brand_gray.400" fontSize="18px">
+                A place wher your journey begins. Make your life easy by
+                managing all your tasks. Make collaboration, plan, manage from
+                one place.
+              </Text>
+            </Box>
+
+            <Box mt="80px" w="full">
+              <Box>
+                <Image src="./images/login_vector.svg" alt="login" />
+              </Box>
+            </Box>
           </Box>
-        </VStack>
-        <VStack alignItems="flex-end" h="full" w="full">
-          <HStack py={4} px={8} justifyContent="flex-end">
-            <Button
-              _hover={{
-                bg: "teal.400",
-              }}
-              _active={{
-                bg: "teal.300",
-              }}
-              bg="teal.500"
-              color="white"
-            >
-              Login
-            </Button>
-          </HStack>
-          <Box width="full" h="full">
-            <Flex alignItems="center" justifyContent="center" h="full">
-              <SimpleGrid column={5} justifyContent="center">
-                <GridItem colSpan={3}>
-                  <RegistrationForm />
-                </GridItem>
-              </SimpleGrid>
-            </Flex>
+
+          <Box w="50%" p="40px" h="full" display="flex" alignItems="center">
+            <AuthCard />
           </Box>
-        </VStack>
-      </HStack>
+        </HStack>
+      </Container>
     </Box>
   );
 }
+
+const styles = {
+  wrapper: {
+    h: "100vh",
+    w: "full",
+    bg: "transparent",
+    position: "relative",
+    overflow: "hidden",
+  },
+  overlay: {
+    position: "absolute",
+    w: "50%",
+    h: "full",
+    bg: "#FAFBFC",
+    borderTopRightRadius: "50%",
+    borderBottomRightRadius: "50%",
+    transform: "scale(1.5)",
+    zIndex: -1,
+  },
+};
