@@ -56,6 +56,7 @@ export default function AuthCard() {
 
             <Box mt="30px">
               <Button
+                size="lg"
                 variant="solid"
                 bg="brand_blue.500"
                 color="white"
@@ -77,6 +78,7 @@ export default function AuthCard() {
 
             <Box mt="20px">
               <Button
+                size="lg"
                 variant="outline"
                 color="brand_gray.500"
                 fontWeight="400"
