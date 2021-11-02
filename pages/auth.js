@@ -8,9 +8,21 @@ export default function auth() {
   return (
     <Box {...styles.wrapper}>
       <Box {...styles.overlay} />
-      <Container maxW="8xl" h="full">
-        <HStack w="full" h="full" alignItems="flex-start">
-          <Box py="75px" h="full" w="50%">
+      <Container justifyContent="center" maxW="8xl" h="full">
+        <HStack
+          w="full"
+          h="full"
+          alignItems="flex-start"
+          flexDirection={{
+            base: "column",
+            md: "row",
+          }}
+        >
+          <Box
+            py={{ base: "20px", lg: "75px" }}
+            h={{ base: "fit-content", lg: "full" }}
+            w={{ base: "full", lg: "50%" }}
+          >
             <Box display="flex">
               <Logo w="38px" />
               <Text
@@ -23,7 +35,7 @@ export default function auth() {
               </Text>
             </Box>
 
-            <Box mt={5} pr="250px">
+            <Box mt={5} pr={{ base: 50, lg: 250 }}>
               <Text fontWeight="400" color="brand_gray.400" fontSize="18px">
                 A place wher your journey begins. Make your life easy by
                 managing all your tasks. Make collaboration, plan, manage from
@@ -31,14 +43,21 @@ export default function auth() {
               </Text>
             </Box>
 
-            <Box mt="80px" w="full">
+            <Box mt="80px" w="full" display={{ base: "none", md: "inherit" }}>
               <Box>
                 <Image src="./images/login_vector.svg" alt="login" />
               </Box>
             </Box>
           </Box>
 
-          <Box w="50%" p="40px" h="full" display="flex" alignItems="center">
+          <Box
+            w={{ base: "full", lg: "50%" }}
+            p={{ base: 0, md: "20px", lg: "40px" }}
+            h="full"
+            marginInlineStart={{ base: "0px !important", md: "inherit" }}
+            display="flex"
+            alignItems="center"
+          >
             <AuthCard />
           </Box>
         </HStack>
@@ -49,7 +68,7 @@ export default function auth() {
 
 const styles = {
   wrapper: {
-    h: "100vh",
+    h: { base: "fit-content", lg: "100vh" },
     w: "full",
     bg: "transparent",
     position: "relative",

@@ -1,5 +1,5 @@
 import "../styles/style.scss";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { Logo } from "../styles/styles";
 import { theme } from "../theme";
 
