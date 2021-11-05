@@ -1,4 +1,4 @@
-export const Container = {
+export const ContainerStyle = {
   baseStyle: {
     maxW: {
       sm: "container.sm",

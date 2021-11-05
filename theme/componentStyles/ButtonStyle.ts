@@ -1,4 +1,4 @@
-export const Button = {
+export const ButtonStyle = {
   baseStyle: {
     _focus: {
       boxShadow: "none",

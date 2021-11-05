@@ -1,7 +1,6 @@
-import "../styles/style.scss";
+import "theme/style.scss";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Logo } from "../styles/styles";
-import { theme } from "../theme";
+import { theme } from "theme/theme";
 
 function MyApp({ Component, pageProps }) {
   return (

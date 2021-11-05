@@ -1,3 +1,7 @@
-export default function Home() {
-  return <h1>Home page will be coming soon</h1>;
-}
+import { SignUpView } from "views/AuthViews/SignUpView";
+
+const AuthV2 = (): JSX.Element => {
+  return <SignUpView />;
+};
+
+export default AuthV2;
