@@ -1,4 +1,4 @@
-import { Box, useColorMode } from "@chakra-ui/react";
+import { Box, useColorMode, Portal } from "@chakra-ui/react";
 import { DarkModeSwitch } from "components/DarkModeSwitch";
 
 interface PropTypes {
@@ -14,7 +14,7 @@ export const FloatingDarkModeSwitch = ({
   bottom,
   right,
 }: PropTypes): JSX.Element => {
-  const { toggleColorMode, colorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
   return (

@@ -5,21 +5,27 @@ import {
   Spacer,
   Text,
   Button,
-  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Logo } from "components/Logo";
 import { DarkModeSwitch } from "components/DarkModeSwitch";
 
-export const AuthNavbar = (): JSX.Element => {
+interface PropTypes {
+  position: any;
+}
+
+export const AuthNavbar = ({ position }: PropTypes): JSX.Element => {
+  const bgColor = useColorModeValue("white", "gray.800");
+
   return (
     <Flex
-      h="80px"
-      align="center"
-      bg="transparent"
-      shadow="sm"
-      position="absolute"
-      top="0"
       w="100%"
+      h={{ base: "60px", md: "80px" }}
+      align="center"
+      bg={bgColor}
+      shadow="sm"
+      position={position}
+      top="0"
     >
       <Container>
         <Flex align="center">
@@ -29,15 +35,18 @@ export const AuthNavbar = (): JSX.Element => {
           <Spacer />
           <Flex align="center">
             <Text
-              fontSize="lg"
+              fontSize="16px"
               color="brand_gray.500"
-              display={{ base: "none", sm: "inherit" }}
+              display={{ base: "none", md: "inherit" }}
             >
               Already have an account ?
             </Text>
-            <Button size="md" ml="4" variant="solid">
+            <Button size="sm" ml="4" variant="solid">
               Login
             </Button>
+            <Box ml="15px">
+              <DarkModeSwitch size="sm" />
+            </Box>
           </Flex>
         </Flex>
       </Container>

@@ -38,7 +38,7 @@ export const InputField = ({
         >
           {label}
         </FormLabel>
-        <InputGroup>
+        <InputGroup size={size ? size : "md"}>
           <InputRightElement
             pointerEvents="none"
             color="brand_gray.400"
@@ -47,7 +47,6 @@ export const InputField = ({
             children={icon}
           />
           <Input
-            size={size ? size : "md"}
             focusBorderColor="brand_blue.500"
             type="email"
             placeholder={placeholder}
