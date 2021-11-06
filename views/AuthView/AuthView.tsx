@@ -2,28 +2,37 @@ import { Box, Container, Flex } from "@chakra-ui/react";
 import { AuthNavbar } from "components/AuthComponents/AuthNavbar";
 import { AuthPageBgShape } from "components/AuthComponents/AuthPageBgShape";
 import { AuthCard } from "components/AuthComponents/AuthCard";
+import { AuthType } from "types";
 
-export const SignUpView = (): JSX.Element => {
+interface PropTypes {
+  authMode: AuthType;
+}
+
+export const AuthView = ({ authMode }: PropTypes): JSX.Element => {
   return (
     <Box
       position="relative"
       w="100%"
-      h={{ base: "auto", md: "100vh" }}
+      minH="100vh"
+      h={{ base: "inherit", md: "100vh" }}
       overflow="hidden"
     >
-      <AuthNavbar position={{ base: "inherit", md: "absolute" }} />
+      <AuthNavbar
+        position={{ base: "inherit", md: "absolute" }}
+        {...{ authMode }}
+      />
       <Container h="100%">
-        <Box
+        <Flex
           w="100%"
           h="100%"
           pt="40px"
           pb="60px"
           px={{ base: "15px", md: "0" }}
+          align="center"
+          justify="center"
         >
-          <Flex h="100%" align="center" justify="center">
-            <AuthCard />
-          </Flex>
-        </Box>
+          <AuthCard {...{ authMode }} />
+        </Flex>
       </Container>
       <AuthPageBgShape />
     </Box>

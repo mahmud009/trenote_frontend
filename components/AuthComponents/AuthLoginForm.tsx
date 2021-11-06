@@ -15,8 +15,9 @@ import { GoogleButton } from "components/GoogleButton";
 import { useRouter } from "next/router";
 import { routes } from "routes/routes";
 
-export const AuthSignUpForm = (): JSX.Element => {
+export const AuthLoginForm = (): JSX.Element => {
   const router = useRouter();
+
   /**
    * Chakra-ui input element is not taking responsive size.
    * So that, we are using this inputSize for the input
@@ -34,42 +35,27 @@ export const AuthSignUpForm = (): JSX.Element => {
       <Box w="100%">
         <Box>
           <Text
-            color="brand_gray.500"
-            fontWeight="700"
-            fontSize={{ base: "14", md: "16" }}
-          >
-            START FOR FREE
-          </Text>
-          <Text
             color={titleColor}
             fontWeight="800"
             fontSize={{ base: 24, md: "28" }}
           >
-            Sign up to trenote
+            Login to trenote
           </Text>
           <Text color="brand_gray.400" fontWeight="400" fontSize="14">
-            Already a member ?
+            Don't have an account ?
             <Link
               color="brand_blue.500"
               ml="5px"
               fontSize="14"
-              onClick={() => router.push(routes.login)}
+              onClick={() => router.push(routes.signup)}
             >
-              Log in
+              Sign up
             </Link>
           </Text>
         </Box>
 
         <Box mt="20px">
           <Grid gap={{ base: 4, md: 6 }}>
-            <InputField
-              name="fullName"
-              size={inputSize}
-              label="Full Name"
-              placeholder="Your full name"
-              icon={<MatIcon name="person" color="brand_blue.500" />}
-            />
-
             <InputField
               name="emailAddress"
               size={inputSize}
@@ -88,7 +74,7 @@ export const AuthSignUpForm = (): JSX.Element => {
 
             <Box mt={2} w="100%">
               <Button variant="solid" size={inputSize} w="100%">
-                Create Account
+                Login
               </Button>
             </Box>
 

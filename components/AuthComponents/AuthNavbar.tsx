@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Box,
   Container,
@@ -6,16 +7,23 @@ import {
   Text,
   Button,
   useColorModeValue,
+  Fade,
 } from "@chakra-ui/react";
 import { Logo } from "components/Logo";
 import { DarkModeSwitch } from "components/DarkModeSwitch";
+import { AuthType } from "types";
+import { useRouter } from "next/router";
+import { routes } from "routes/routes";
 
 interface PropTypes {
   position: any;
+  authMode: AuthType;
 }
 
-export const AuthNavbar = ({ position }: PropTypes): JSX.Element => {
+export const AuthNavbar = ({ position, authMode }: PropTypes): JSX.Element => {
   const bgColor = useColorModeValue("white", "gray.800");
+  const isLogin = authMode === "login";
+  const router = useRouter();
 
   return (
     <Flex
@@ -26,6 +34,8 @@ export const AuthNavbar = ({ position }: PropTypes): JSX.Element => {
       shadow="sm"
       position={position}
       top="0"
+      borderBottom="1px solid"
+      borderBottomColor="whiteAlpha.200"
     >
       <Container>
         <Flex align="center">
@@ -39,11 +49,30 @@ export const AuthNavbar = ({ position }: PropTypes): JSX.Element => {
               color="brand_gray.500"
               display={{ base: "none", md: "inherit" }}
             >
-              Already have an account ?
+              {isLogin
+                ? "Don't have an account ?"
+                : "Already have an account ?"}
             </Text>
-            <Button size="sm" ml="4" variant="solid">
-              Login
-            </Button>
+            {isLogin ? (
+              <Button
+                size="sm"
+                ml="4"
+                variant="solid"
+                onClick={() => router.push(routes.signup)}
+              >
+                Sign up
+              </Button>
+            ) : (
+              <Button
+                size="sm"
+                ml="4"
+                variant="solid"
+                onClick={() => router.push(routes.login)}
+              >
+                Login
+              </Button>
+            )}
+
             <Box ml="15px">
               <DarkModeSwitch size="sm" />
             </Box>

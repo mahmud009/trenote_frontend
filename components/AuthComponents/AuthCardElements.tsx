@@ -1,4 +1,10 @@
-import { Flex, Image, Box, useColorModeValue } from "@chakra-ui/react";
+import {
+  Flex,
+  Image,
+  Box,
+  useColorModeValue,
+  SlideFade,
+} from "@chakra-ui/react";
 import { SVGDots } from "components/SVGElements/SVGDots";
 import { v4 as uuid } from "uuid";
 
@@ -46,22 +52,37 @@ export const AuthCardElements = (): JSX.Element => {
         }}
       />
 
-      <Image
-        src="./images/shapes/shape2.svg"
+      <Box
         position="absolute"
-        w={500}
+        w={{ base: "250px", md: "500px" }}
         top="0px"
         left="0px"
         transform="translate(-50%, -50%)"
-      />
-      <Image
-        src="./images/shapes/shape4.svg"
+      >
+        <SlideFade
+          in={true}
+          offsetX="-50%"
+          style={{ transitionDuration: "0.4s" }}
+        >
+          <Image src="./images/shapes/shape2.svg" />
+        </SlideFade>
+      </Box>
+
+      <Box
         position="absolute"
-        w={500}
+        w={{ base: "250px", md: "500px" }}
         bottom="0px"
         right="0px"
         transform="translate(50%, 50%)"
-      />
+      >
+        <SlideFade
+          in={true}
+          offsetX="50%"
+          style={{ transitionDuration: "0.4s" }}
+        >
+          <Image src="./images/shapes/shape4.svg" />
+        </SlideFade>
+      </Box>
 
       <Image
         src="./images/auth_vector.svg"
