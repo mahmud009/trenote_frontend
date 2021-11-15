@@ -14,7 +14,7 @@ export const AuthView = ({ authMode }: PropTypes): JSX.Element => {
       position="relative"
       w="100%"
       minH="100vh"
-      h={{ base: "inherit", md: "100vh" }}
+      h={{ base: "1000px", md: "1200px" }}
       overflow="hidden"
     >
       <AuthNavbar
@@ -23,10 +23,7 @@ export const AuthView = ({ authMode }: PropTypes): JSX.Element => {
       />
       <Container h="100%">
         <Flex
-          w="100%"
-          h="100%"
-          pt="40px"
-          pb="60px"
+          mt={{ base: "60px", md: "150px" }}
           px={{ base: "15px", md: "0" }}
           align="center"
           justify="center"
